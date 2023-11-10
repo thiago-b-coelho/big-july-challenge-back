@@ -20,7 +20,7 @@ app.post('/login', async (req, res) => {
 
   if (!checkedPass) return res.status(400).json({ message: "Username or password incorrect" })
 
-  const token = jwt.sign({ _id: userExists.id }, 'shh');
+  const token = jwt.sign({ username: userExists.username }, 'shh');
 
   return res.status(200).json({ message: 'Login successfull', token })
 })
